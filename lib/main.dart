@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shopapp/views/home_view.dart';
+import 'package:get/get.dart';
+import 'package:shopapp/common/colors.dart';
+import 'package:shopapp/views/splash_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,14 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Shop App',
       theme: ThemeData(
-    
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primaryColor: AppColor.primary,
         useMaterial3: true,
       ),
-      home: const HomeView(),
+      home: const SplashView(),
     );
   }
 }
