@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:shopapp/common/colors.dart';
+import 'package:shopapp/provider/main_view_provider.dart';
 import 'package:shopapp/views/splash_view.dart';
 
 void main() {
@@ -12,13 +14,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Shop App',
-      theme: ThemeData(
-        primaryColor: AppColor.primary,
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => MainViewProvider()),
+      ],
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Shop App',
+        theme: ThemeData(
+          primaryColor: AppColor.primary,
+          useMaterial3: true,
+        ),
+        home: const SplashView(),
       ),
-      home: const SplashView(),
     );
   }
 }

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopapp/common/colors.dart';
-import 'package:shopapp/views/home_view.dart';
+import 'package:shopapp/views/main_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -17,7 +17,7 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 3), () {
-      Get.off(() => HomeView(),
+      Get.off(() => MainView(),
           transition: Transition.leftToRightWithFade,
           duration: Duration(seconds: 3));
     });
