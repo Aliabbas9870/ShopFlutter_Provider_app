@@ -28,9 +28,7 @@ class _MainViewState extends State<MainView> {
     return Consumer<MainViewProvider>(builder: (context, provid, child) {
       return Scaffold(
         backgroundColor: AppColor.third,
-        appBar: AppBar(
-          backgroundColor: AppColor.third,
-        ),
+    
         body: pageList[provid.pageIndex],
         bottomNavigationBar: BottomNavBar(),
       );

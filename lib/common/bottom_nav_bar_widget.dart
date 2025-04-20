@@ -17,7 +17,7 @@ class BottomNavBarWidget extends StatelessWidget {
       hoverColor: AppColor.third,
       child: Icon(
         icon,
-        color:  AppColor.primary,
+        color:  AppColor.bg,
       ),
     );
   }
