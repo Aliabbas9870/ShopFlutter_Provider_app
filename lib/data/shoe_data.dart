@@ -1,6 +1,6 @@
 
 
-import 'package:shopapp/model/shoe_model.dart';
+import 'package:shopapp/model/main_shoe_model.dart';
 
 List<Shoe> localShoes = [
   Shoe(

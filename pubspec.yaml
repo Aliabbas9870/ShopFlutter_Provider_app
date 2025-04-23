@@ -39,6 +39,8 @@ dependencies:
   provider:
   get:
   cached_network_image:
+  flutter_local_notifications: ^19.1.0
+  timezone: ^0.10.0
 
 dev_dependencies:
   flutter_test:
