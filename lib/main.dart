@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           // primaryColor: AppColor.primary,
           useMaterial3: true,
         ),
-        home: const NotificationView(),
+        home: const NotificationScreen(),
       ),
     );
   }

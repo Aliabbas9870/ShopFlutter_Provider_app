@@ -2,14 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:shopapp/notification/notification.dart';
 
-class NotificationView extends StatefulWidget {
-  const NotificationView({super.key});
+class NotificationScreen extends StatefulWidget {
+  const NotificationScreen({super.key});
 
   @override
-  State<NotificationView> createState() => _NotificationViewState();
+  State<NotificationScreen> createState() => _NotificationScreenState();
 }
 
-class _NotificationViewState extends State<NotificationView> {
+class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
