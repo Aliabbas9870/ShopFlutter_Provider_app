@@ -1,0 +1,77 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shopapp/common/new_shoes.dart';
+import 'package:shopapp/common/product_card.dart';
+import 'package:shopapp/provider/shoe_provider.dart';
+
+class MenuHome extends StatelessWidget {
+  const MenuHome({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+        final h = MediaQuery.of(context).size.height;
+    final w = MediaQuery.of(context).size.width;
+    final shoe = Provider.of<ShoeProvider>(context);
+    return  Column(
+                        children: [
+                          SizedBox(
+                            height: h * 0.402,
+                            child: ListView.builder(
+                                itemCount: shoe.localData.length,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (ctx, i) {
+                                  final shoes = shoe.localData[i];
+                                  return ProductCard(
+                                    id: shoes.id.toString(),
+                                    name: shoes.name.toString(),
+                                    category: shoes.category.toString(),
+                                    price: shoes.price.toString(),
+                                    image: shoes.image.toString(),
+                                  );
+                                }),
+                          ),
+                          Column(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(12, 20, 12, 20),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("Latest Shoes",
+                                        style: TextStyle(
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.bold)),
+                                    Text("See All",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold))
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: h * 0.13,
+                            child: ListView.builder(
+                                itemCount: shoe.localData.length,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (ctx, i) {
+                                  final shoes = shoe.localData[i];
+                                  return Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: NewShoes(
+                                      w: w,
+                                      h: h,
+                                      imgUrl: shoes.image,
+                                    ),
+                                  );
+                                }),
+                          )
+                        ],
+    );
+                    
+
+  }
+}

@@ -64,14 +64,14 @@ class BottomNavBar extends StatelessWidget {
                   : Icons.favorite_border,
             ),
 
-                   BottomNavBarWidget(
-              onTap: () {
-                provid.pageIdex = 5;
-              },
-                   icon: provid.pageIndex == 5
-                  ? Icons.notifications
-                  : Icons.notifications_none,
-            ),
+            //        BottomNavBarWidget(
+            //   onTap: () {
+            //     provid.pageIdex = 5;
+            //   },
+            //        icon: provid.pageIndex == 5
+            //       ? Icons.notifications
+            //       : Icons.notifications_none,
+            // ),
           ],
         ),
       ),

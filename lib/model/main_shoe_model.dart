@@ -124,3 +124,44 @@ WomanShoe({
   }
 }
 
+
+
+class KidShoe {
+  final String id;
+  final String name;
+  final String price;
+  final String image;
+  final String category;
+  final String color;
+
+KidShoe({
+    required this.id,
+    required this.name,
+    required this.price,
+    required this.image,
+    required this.category,
+    required this.color,
+  });
+
+  factory KidShoe.fromJson(Map<String, dynamic> json) {
+    return KidShoe(
+      id: json['id'],
+      name: json['name'],
+      price: json['price'],
+      image: json['image'],
+      category: json['category'],
+      color: json['color'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'price': price,
+      'image': image,
+      'category': category,
+      'color': color,
+    };
+  }
+}

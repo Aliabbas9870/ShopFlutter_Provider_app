@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:shopapp/data/kid.dart';
 import 'package:shopapp/data/man.dart';
 import 'package:shopapp/data/shoe_data.dart';
 import 'package:shopapp/data/woman.dart';
@@ -24,5 +25,12 @@ class WomanShoeProvider with ChangeNotifier {
   List<WomanShoe> _localwoman = localWoman;
   List<WomanShoe> get localWomanData => _localwoman;
   
+}
+
+
+// kids shoes 
+class KidsShoeProvider with ChangeNotifier {
+  List<KidShoe> _localkid = localkid;
+  List<KidShoe> get localKidData => _localkid;
   
 }
