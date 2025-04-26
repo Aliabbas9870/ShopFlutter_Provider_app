@@ -41,6 +41,7 @@ dependencies:
   cached_network_image:
   flutter_local_notifications: ^19.1.0
   timezone: ^0.10.0
+  flutter_staggered_grid_view:
 
 dev_dependencies:
   flutter_test:

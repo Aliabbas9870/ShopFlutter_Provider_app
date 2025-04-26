@@ -9,6 +9,7 @@ class NewShoes extends StatelessWidget {
     required this.w,
     required this.h, required this.imgUrl,
   });
+  
 
   final double w;
   final double h;

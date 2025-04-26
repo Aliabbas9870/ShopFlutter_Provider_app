@@ -83,10 +83,18 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                 Padding(
                   padding: EdgeInsets.only(top: h * 0.265),
                   child: TabBarView(controller: _tabController, children: [
-                    MenuHome(),
-                    ManHome(),
-                    WomanHome(),
-                    KidHome()
+                    MenuHome(
+                      tabIndex: 0,
+                    ),
+                    ManHome(
+                      tabIndex: 1,
+                    ),
+                    WomanHome(
+                      tabIndex: 2,
+                    ),
+                    KidHome(
+                      tabIndex: 3,
+                    )
                   ]),
                 ),
               ],

@@ -6,7 +6,6 @@ import 'package:shopapp/provider/main_view_provider.dart';
 import 'package:shopapp/views/cart_view.dart';
 import 'package:shopapp/views/favourit_view.dart';
 import 'package:shopapp/views/home_view.dart';
-import 'package:shopapp/views/product_by_cart.dart';
 import 'package:shopapp/views/search_view.dart';
 
 class MainView extends StatefulWidget {
@@ -20,7 +19,8 @@ class _MainViewState extends State<MainView> {
     HomeView(),
     CartView(),
    
-    ProductByCart(),
+    // ProductByCart(),
+    HomeView(),
     SearchView(),
     FavouritView(),
     //  NotificationView(),

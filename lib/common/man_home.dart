@@ -3,9 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:shopapp/common/new_shoes.dart';
 import 'package:shopapp/common/product_card.dart';
 import 'package:shopapp/provider/shoe_provider.dart';
+import 'package:shopapp/views/product_by_cart.dart';
 
 class ManHome extends StatelessWidget {
-  const ManHome({super.key});
+  const ManHome({super.key, required this.tabIndex,});
+  final int tabIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +45,17 @@ class ManHome extends StatelessWidget {
                                         style: TextStyle(
                                             fontSize: 22,
                                             fontWeight: FontWeight.bold)),
-                                    Text("See All",
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold))
+                                   GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProductByCart(tabIndex: tabIndex,)));
+                    },
+                    child: Text("See All",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold)),
+                  )
                                   ],
                                 ),
                               )
