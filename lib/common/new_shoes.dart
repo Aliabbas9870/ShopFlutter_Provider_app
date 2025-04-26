@@ -27,7 +27,7 @@ class NewShoes extends StatelessWidget {
                 blurRadius: 0.7,
                 offset: Offset(0, 1))
           ],
-          color: AppColor.bg,
+          color: AppColor.secondary,
           borderRadius: BorderRadius.all(
               Radius.circular(12))),
       child: CachedNetworkImage(

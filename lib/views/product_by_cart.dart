@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:shopapp/common/category_btn.dart';
 import 'package:shopapp/common/colors.dart';
@@ -7,10 +8,11 @@ import 'package:shopapp/common/man_product.dart';
 import 'package:shopapp/common/menu_product.dart';
 import 'package:shopapp/common/woman_product.dart';
 import 'package:shopapp/provider/shoe_provider.dart';
+import 'package:shopapp/views/main_view.dart';
 
 class ProductByCart extends StatefulWidget {
-  const ProductByCart({super.key,required this.tabIndex});
-  final int tabIndex;  
+  const ProductByCart({super.key, required this.tabIndex});
+  final int tabIndex;
 
   @override
   State<ProductByCart> createState() => _ProductByCartState();
@@ -18,8 +20,20 @@ class ProductByCart extends StatefulWidget {
 
 class _ProductByCartState extends State<ProductByCart>
     with SingleTickerProviderStateMixin {
-  late final TabController _tabController =
-      TabController(length: 4, vsync: this);
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController =
+        TabController(length: 4, vsync: this, initialIndex: widget.tabIndex);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +62,11 @@ class _ProductByCartState extends State<ProductByCart>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Get.to(() => MainView(),
+                                  transition: Transition.leftToRight,
+                                  duration: Duration(seconds: 2));
+                            },
                             child: Icon(Icons.close, color: AppColor.bg),
                           ),
                           GestureDetector(
@@ -173,8 +191,6 @@ class _ProductByCartState extends State<ProductByCart>
                               label: "news", btnColor: AppColor.primary),
                         ],
                       ),
-
-
                     ],
                   ),
                 )

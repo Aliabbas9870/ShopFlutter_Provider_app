@@ -47,7 +47,7 @@ class MenuHome extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ProductByCart(tabIndex: tabIndex,)));
+                              builder: (context) => ProductByCart(tabIndex: 0,)));
                     },
                     child: Text("See All",
                         style: TextStyle(

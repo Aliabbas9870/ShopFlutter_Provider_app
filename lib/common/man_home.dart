@@ -50,7 +50,7 @@ class ManHome extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ProductByCart(tabIndex: tabIndex,)));
+                              builder: (context) => ProductByCart(tabIndex: 1,)));
                     },
                     child: Text("See All",
                         style: TextStyle(
