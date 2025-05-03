@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shopapp/common/colors.dart';
+import 'package:shopapp/share/colors.dart';
 import 'package:shopapp/views/main_view.dart';
 
 class SplashView extends StatefulWidget {

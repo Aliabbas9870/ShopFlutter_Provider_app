@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopapp/common/colors.dart';
-import 'package:shopapp/common/kid_home.dart';
-import 'package:shopapp/common/man_home.dart';
-import 'package:shopapp/common/menu_home.dart';
-import 'package:shopapp/common/woman_home.dart';
+import 'package:shopapp/share/colors.dart';
+import 'package:shopapp/share/kid_home.dart';
+import 'package:shopapp/share/man_home.dart';
+import 'package:shopapp/share/menu_home.dart';
+import 'package:shopapp/share/woman_home.dart';
 import 'package:shopapp/provider/shoe_provider.dart';
 
 class HomeView extends StatefulWidget {

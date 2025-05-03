@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:shopapp/common/category_btn.dart';
-import 'package:shopapp/common/colors.dart';
-import 'package:shopapp/common/kid_product.dart';
-import 'package:shopapp/common/man_product.dart';
-import 'package:shopapp/common/menu_product.dart';
-import 'package:shopapp/common/woman_product.dart';
+import 'package:shopapp/share/category_btn.dart';
+import 'package:shopapp/share/colors.dart';
+import 'package:shopapp/share/kid_product.dart';
+import 'package:shopapp/share/man_product.dart';
+import 'package:shopapp/share/menu_product.dart';
+import 'package:shopapp/share/woman_product.dart';
 import 'package:shopapp/provider/shoe_provider.dart';
 import 'package:shopapp/views/main_view.dart';
 
@@ -40,10 +40,10 @@ class _ProductByCartState extends State<ProductByCart>
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
     final menu = Provider.of<ShoeProvider>(context);
-    final man = Provider.of<ManShoeProvider>(context);
-    final kid = Provider.of<KidsShoeProvider>(context);
+    final man = Provider.of<ShoeProvider>(context);
+    final kid = Provider.of<ShoeProvider>(context);
 
-    final woman = Provider.of<WomanShoeProvider>(context);
+    final woman = Provider.of<ShoeProvider>(context);
     return Scaffold(
         backgroundColor: AppColor.bg,
         body: SizedBox(

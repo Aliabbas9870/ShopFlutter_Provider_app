@@ -1,7 +1,7 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:shopapp/common/colors.dart';
+import 'package:shopapp/share/colors.dart';
 
 class NewShoes extends StatelessWidget {
   const NewShoes({

@@ -41,9 +41,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => MainViewProvider()),
         ChangeNotifierProvider(create: (context) => ShoeProvider()),
-        ChangeNotifierProvider(create: (context) =>  ManShoeProvider()),
-        ChangeNotifierProvider(create: (context) => WomanShoeProvider()),
-        ChangeNotifierProvider(create: (context) => KidsShoeProvider()),
+  
         ChangeNotifierProvider(create: (context) => ProductNotifier()),
       ],
       child: GetMaterialApp(

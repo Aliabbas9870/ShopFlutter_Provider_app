@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shopapp/common/stager_tile.dart';
 import 'package:shopapp/provider/shoe_provider.dart';
+import 'package:shopapp/share/stager_tile.dart';
+import 'package:shopapp/views/product_page.dart';
 
 class ManuProduct extends StatelessWidget {
   const ManuProduct({
@@ -24,11 +25,21 @@ class ManuProduct extends StatelessWidget {
       ),
       itemBuilder: (context, i) {
          final shoes = shoe.localData[i];
-        return StagerTile(
-          imgUrl:
-              shoes.image, 
-          name: shoes.name,
-          price:"\$ "+ shoes.price, 
+        return GestureDetector(
+           onTap: (){
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProductPage(shoe: shoes), // Pass the selected shoe
+                    ),
+                  );
+                },
+          child: StagerTile(
+            imgUrl:
+                shoes.image, 
+            name: shoes.name,
+            price:"\$ "+ shoes.price, 
+          ),
         );
       },
       itemCount: shoe.localData.length,

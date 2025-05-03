@@ -1,31 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopapp/common/new_shoes.dart';
-import 'package:shopapp/common/product_card.dart';
+import 'package:shopapp/model/main_shoe_model.dart';
 import 'package:shopapp/provider/shoe_provider.dart';
+import 'package:shopapp/share/new_shoes.dart';
+import 'package:shopapp/share/product_card.dart';
 import 'package:shopapp/views/product_by_cart.dart';
+import 'package:shopapp/views/product_page.dart';
 
-class ManHome extends StatelessWidget {
-  const ManHome({super.key, required this.tabIndex,});
+class WomanHome extends StatelessWidget {
+  const WomanHome({super.key, required this.tabIndex});
   final int tabIndex;
 
   @override
   Widget build(BuildContext context) {
         final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
-    final shoe = Provider.of<ManShoeProvider>(context);
+    final shoe = Provider.of<ShoeProvider>(context);
+
+    List<Shoe> shoesData;
+    if (tabIndex == 0) {
+      shoesData = shoe.localShoe; // Shoes for category "localShoes"
+    } else if (tabIndex == 1) {
+      shoesData = shoe.localManShoe; // Shoes for category "manShoe"
+    } else if (tabIndex == 2) {
+      shoesData = shoe.localWomanShoe; // Shoes for category "womanShoe"
+    } else {
+      shoesData = shoe.localkidShoe; // Shoes for category "kidShoe"
+    }
     return  Column(
                         children: [
                           SizedBox(
                             height: h * 0.402,
                             child: ListView.builder(
-                                itemCount: shoe.localManData.length,
+                                itemCount: shoesData.length,
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (ctx, i) {
-                                  final shoes = shoe.localManData[i];
+                                  final shoes = shoe.localWomanData[i];
                                   return GestureDetector(
-                                    
-
+                                     onTap: (){
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProductPage(shoe: shoes), // Pass the selected shoe
+                    ),
+                  );
+                },
                                     child: ProductCard(
                                       id: shoes.id.toString(),
                                       name: shoes.name.toString(),
@@ -49,12 +68,12 @@ class ManHome extends StatelessWidget {
                                         style: TextStyle(
                                             fontSize: 22,
                                             fontWeight: FontWeight.bold)),
-                                   GestureDetector(
+                                    GestureDetector(
                     onTap: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ProductByCart(tabIndex: 1,)));
+                              builder: (context) => ProductByCart(tabIndex: 2,)));
                     },
                     child: Text("See All",
                         style: TextStyle(
@@ -68,10 +87,10 @@ class ManHome extends StatelessWidget {
                           SizedBox(
                             height: h * 0.13,
                             child: ListView.builder(
-                                itemCount: shoe.localManData.length,
+                                itemCount: shoe.localWomanData.length,
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (ctx, i) {
-                                  final shoes = shoe.localManData[i];
+                                  final shoes = shoe.localWomanData[i];
                                   return Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: NewShoes(

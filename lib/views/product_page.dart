@@ -1,15 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
-import 'package:shopapp/common/colors.dart';
 import 'package:shopapp/model/main_shoe_model.dart';
 import 'package:shopapp/provider/product_provider.dart';
+import 'package:shopapp/share/colors.dart';
 
 class ProductPage extends StatefulWidget {
-  final Shoe shoeData;
-  final ManShoe shoeDataMan;
+  final Shoe shoe;
 
-  const ProductPage({super.key, required this.shoeData, required this.shoeDataMan});
+  const ProductPage({super.key, required this.shoe});
 
   @override
   State<ProductPage> createState() => _ProductPageState();
@@ -81,8 +81,7 @@ class _ProductPageState extends State<ProductPage> {
                               width: MediaQuery.of(context).size.width,
                               color: AppColor.bg,
                               child: CachedNetworkImage(
-                                imageUrl:
-                                    "https://www.nicepng.com/png/full/982-9821153_stylish-kids-shoes.png",
+                                imageUrl: widget.shoe.image,
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -117,34 +116,130 @@ class _ProductPageState extends State<ProductPage> {
                                     );
                                   }),
                                 )),
-                        
                           ],
                         );
                       },
                     ),
                   ),
-
-                      Positioned(
-                                bottom: 30,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      topRight: Radius.circular(20)),
-                                  child: Container(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.65,
-                                    width: MediaQuery.of(context).size.width,
-                                    color: Colors.white,
-                                    child: Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [],
-                                      ),
+                  Positioned(
+                      bottom: 30,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20)),
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.65,
+                          width: MediaQuery.of(context).size.width,
+                          color: Colors.white,
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(widget.shoe.name,
+                                    style: TextStyle(
+                                        fontSize: 22,
+                                        color: AppColor.primary,
+                                        fontWeight: FontWeight.bold)),
+                                SizedBox(
+                                  height: 12,
+                                ),
+                                Row(
+                                  children: [
+                                    Text(widget.shoe.category,
+                                        style: TextStyle(
+                                            fontSize: 17,
+                                            color: Colors.grey,
+                                            fontWeight: FontWeight.bold)),
+                                    SizedBox(
+                                      width: 16,
                                     ),
-                                  ),
-                                )),
+                                    RatingBar.builder(
+                                      initialRating: 3,
+                                      minRating: 1,
+                                      direction: Axis.horizontal,
+                                      allowHalfRating: true,
+                                      itemCount: 5,
+                                      itemSize: 20,
+                                      itemPadding:
+                                          EdgeInsets.symmetric(horizontal: 1),
+                                      itemBuilder: (context, _) => Icon(
+                                        Icons.star,
+                                        color: AppColor.primary,
+                                        size: 15,
+                                      ),
+                                      onRatingUpdate: (rating) {
+                                        print(rating);
+                                      },
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 12,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("\$" + widget.shoe.price + ".00",
+                                        style: TextStyle(
+                                            fontSize: 19,
+                                            color: AppColor.primary,
+                                            fontWeight: FontWeight.bold)),
+                                    Row(
+                                      children: [
+                                        Text("Colors",
+                                            style: TextStyle(
+                                                fontSize: 17,
+                                                color: AppColor.primary,
+                                                fontWeight: FontWeight.bold)),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Container(
+                                          height: 17,
+                                          width: 17,
+                                          decoration: BoxDecoration(
+                                              color: AppColor.primary,
+                                              shape: BoxShape.circle),
+                                        ),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Container(
+                                          height: 17,
+                                          width: 17,
+                                          decoration: BoxDecoration(
+                                              color: AppColor.secondary,
+                                              shape: BoxShape.circle),
+                                        ),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Container(
+                                          height: 17,
+                                          width: 17,
+                                          decoration: BoxDecoration(
+                                              color: AppColor.bg,
+                                              shape: BoxShape.circle),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 18,
+                                ),
+                                Column(
+                                  children: [
+                                   
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      )),
                 ],
               ),
             ))
