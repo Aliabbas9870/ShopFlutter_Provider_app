@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopapp/common/bottom_navbar.dart';
-import 'package:shopapp/common/colors.dart';
-import 'package:shopapp/notification/notification_view.dart';
+import 'package:shopapp/share/bottom_navbar.dart';
+import 'package:shopapp/share/colors.dart';
 import 'package:shopapp/provider/main_view_provider.dart';
 import 'package:shopapp/views/cart_view.dart';
 import 'package:shopapp/views/favourit_view.dart';
@@ -19,11 +18,13 @@ class _MainViewState extends State<MainView> {
   List<Widget> pageList = [
     HomeView(),
     CartView(),
+    // ProductPage(),
    
+    // ProductByCart(),
     HomeView(),
     SearchView(),
     FavouritView(),
-     NotificationView(),
+    //  NotificationView(),
   ];
 
   @override

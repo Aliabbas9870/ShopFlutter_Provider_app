@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopapp/common/bottom_nav_bar_widget.dart';
-import 'package:shopapp/common/colors.dart';
+import 'package:shopapp/share/bottom_nav_bar_widget.dart';
+import 'package:shopapp/share/colors.dart';
 import 'package:shopapp/provider/main_view_provider.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -64,14 +64,14 @@ class BottomNavBar extends StatelessWidget {
                   : Icons.favorite_border,
             ),
 
-                   BottomNavBarWidget(
-              onTap: () {
-                provid.pageIdex = 5;
-              },
-                   icon: provid.pageIndex == 5
-                  ? Icons.notifications
-                  : Icons.notifications_none,
-            ),
+            //        BottomNavBarWidget(
+            //   onTap: () {
+            //     provid.pageIdex = 5;
+            //   },
+            //        icon: provid.pageIndex == 5
+            //       ? Icons.notifications
+            //       : Icons.notifications_none,
+            // ),
           ],
         ),
       ),
