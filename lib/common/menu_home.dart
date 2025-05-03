@@ -8,11 +8,11 @@ import 'package:shopapp/views/product_by_cart.dart';
 class MenuHome extends StatelessWidget {
   const MenuHome({super.key, required this.tabIndex});
   final int tabIndex ;
-
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
+    
     final shoe = Provider.of<ShoeProvider>(context);
     return Column(
       children: [

@@ -23,12 +23,16 @@ class ManHome extends StatelessWidget {
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (ctx, i) {
                                   final shoes = shoe.localManData[i];
-                                  return ProductCard(
-                                    id: shoes.id.toString(),
-                                    name: shoes.name.toString(),
-                                    category: shoes.category.toString(),
-                                    price: shoes.price.toString(),
-                                    image: shoes.image.toString(),
+                                  return GestureDetector(
+                                    
+
+                                    child: ProductCard(
+                                      id: shoes.id.toString(),
+                                      name: shoes.name.toString(),
+                                      category: shoes.category.toString(),
+                                      price: shoes.price.toString(),
+                                      image: shoes.image.toString(),
+                                    ),
                                   );
                                 }),
                           ),

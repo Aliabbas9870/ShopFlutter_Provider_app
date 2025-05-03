@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:shopapp/notification/notification.dart';
 import 'package:shopapp/provider/main_view_provider.dart';
+import 'package:shopapp/provider/product_provider.dart';
 import 'package:shopapp/provider/shoe_provider.dart';
 import 'package:shopapp/views/splash_view.dart';
 import 'package:timezone/data/latest.dart' as tz;
@@ -40,11 +41,10 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => MainViewProvider()),
         ChangeNotifierProvider(create: (context) => ShoeProvider()),
-        ChangeNotifierProvider(create: (context) =>     ManShoeProvider()),
+        ChangeNotifierProvider(create: (context) =>  ManShoeProvider()),
         ChangeNotifierProvider(create: (context) => WomanShoeProvider()),
         ChangeNotifierProvider(create: (context) => KidsShoeProvider()),
-
-    
+        ChangeNotifierProvider(create: (context) => ProductNotifier()),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,

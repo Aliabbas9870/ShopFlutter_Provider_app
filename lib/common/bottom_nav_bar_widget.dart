@@ -12,12 +12,16 @@ class BottomNavBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provide=Provider.of<MainViewProvider>(context);
-    return InkWell(
-      onTap: onTap,
-      hoverColor: AppColor.third,
-      child: Icon(
-        icon,
-        color:  AppColor.bg,
+    return Container(
+      padding: EdgeInsets.all(6),
+      decoration:  BoxDecoration(borderRadius: BorderRadius.circular(20)),
+      child: InkWell(
+        onTap: onTap,
+        hoverColor: AppColor.third,
+        child: Icon(
+          icon,
+          color:  AppColor.bg,
+        ),
       ),
     );
   }
