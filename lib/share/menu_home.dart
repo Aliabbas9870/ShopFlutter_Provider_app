@@ -1,10 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopapp/model/main_shoe_model.dart';
+import 'package:shopapp/provider/product_provider.dart';
+import 'package:shopapp/provider/shoe_provider.dart';
 import 'package:shopapp/share/new_shoes.dart';
 import 'package:shopapp/share/product_card.dart';
-import 'package:shopapp/model/main_shoe_model.dart';
-import 'package:shopapp/provider/shoe_provider.dart';
 import 'package:shopapp/views/product_by_cart.dart';
 import 'package:shopapp/views/product_page.dart';
 
@@ -17,20 +17,20 @@ class MenuHome extends StatelessWidget {
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
 
-    
     final shoeProvider = Provider.of<ShoeProvider>(context);
 
     List<Shoe> shoesData;
     if (tabIndex == 0) {
-      shoesData = shoeProvider.localShoe;  // Shoes for category "localShoes"
+      shoesData = shoeProvider.localShoe; // Shoes for category "localShoes"
     } else if (tabIndex == 1) {
-      shoesData = shoeProvider.localManShoe;  // Shoes for category "manShoe"
+      shoesData = shoeProvider.localManShoe; // Shoes for category "manShoe"
     } else if (tabIndex == 2) {
-      shoesData = shoeProvider.localWomanShoe;  // Shoes for category "womanShoe"
+      shoesData = shoeProvider.localWomanShoe; // Shoes for category "womanShoe"
     } else {
-      shoesData = shoeProvider.localkidShoe;  // Shoes for category "kidShoe"
+      shoesData = shoeProvider.localkidShoe; // Shoes for category "kidShoe"
     }
 
+    var productNotifier = Provider.of<ProductNotifier>(context);
     return Column(
       children: [
         // Horizontal list of featured shoes
@@ -42,11 +42,12 @@ class MenuHome extends StatelessWidget {
             itemBuilder: (ctx, i) {
               final shoe = shoesData[i];
               return GestureDetector(
-                onTap: (){
-                    Navigator.push(
+                onTap: () {
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProductPage(shoe: shoe), // Pass the selected shoe
+                      builder: (context) =>
+                          ProductPage(shoe: shoe), // Pass the selected shoe
                     ),
                   );
                 },
@@ -79,14 +80,15 @@ class MenuHome extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              ProductByCart(tabIndex: tabIndex), // Pass the correct tabIndex
+                          builder: (context) => ProductByCart(
+                              tabIndex: tabIndex), // Pass the correct tabIndex
                         ),
                       );
                     },
                     child: Text(
                       "See All",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],

@@ -43,6 +43,7 @@ dependencies:
   timezone: ^0.10.0
   flutter_staggered_grid_view:
   flutter_rating_bar: ^4.0.1
+  hive:
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 import 'package:shopapp/notification/notification.dart';
 import 'package:shopapp/provider/main_view_provider.dart';
@@ -16,6 +17,13 @@ void main() async{
   // startRepeatingNotifications(); 
 
   tz.initializeTimeZones();
+
+  
+  await Hive.openBox("cart_box");
+  await Hive.openBox("fav_box");
+
+
+
   runApp(const MyApp());
 }
 void startRepeatingNotifications() {
