@@ -4,6 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:shopapp/model/main_shoe_model.dart';
 import 'package:shopapp/provider/product_provider.dart';
+import 'package:shopapp/share/check_out_btn.dart';
 import 'package:shopapp/share/colors.dart';
 
 class ProductPage extends StatefulWidget {
@@ -232,7 +233,16 @@ class _ProductPageState extends State<ProductPage> {
                                 ),
                                 Column(
                                   children: [
-                                   
+                                    Align(
+                                      alignment: Alignment.bottomCenter,
+                                      child: Padding(
+                                        padding: EdgeInsets.only(top: 12),
+                                        child: CheckOutBtn(
+                                          onTap: () {},
+                                          label: 'Add to Cart',
+                                        ),
+                                      ),
+                                    )
                                   ],
                                 )
                               ],
